@@ -28,3 +28,7 @@ server:
   web:
     resources:
       static-locations: classpath:/static/
+
+#globel_variable:
+#  #全局变量设置
+#  wait_for_confirmed:待确认的报修表

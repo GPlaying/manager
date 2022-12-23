@@ -3,20 +3,20 @@ package example.manage.bean.User;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
-@Entity(name = "Workers")
+@Entity(name = "workers")
 @Data
 @ToString()
 public class Workers {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(updatable = false)
     private int id;
     private String name;
+    private int type; //工种
+    private int status; //0表示空闲，1表示忙碌
 
 }

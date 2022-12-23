@@ -1,36 +1,34 @@
 package example.manage.controller.Complain;
 
 import example.manage.bean.Complain.Complain;
-import example.manage.service.ComplainService;
+import example.manage.service.Complain.ComplainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import java.util.List;
 
 
 @Controller
 public class ComplainController {
 
-    @Autowired
-    private ComplainService complainService;
+//    @Autowired
+//    private ComplainService complainService;
+//
+//    public void deleteComplain(Integer id) {
+//        complainService.deleteComplain(id);
+//    }
+//
+//    public void addComplain(Complain complain) {
+//        complainService.addComplain(complain);
+//    }
+//
+//    public void updateComplain(Complain complain) {
+//        complainService.updateComplain(complain);
+//    }
 
-    public List selectLike(String search) {
-        List<Complain> list = complainService.selectLike(search);
-        System.out.print(list);
-        return list;
-    }
-
-    public void deleteComplain(Integer id) {
-        complainService.deleteComplain(id);
-    }
-
-    public void insertComplain(Complain complain) {
-        complainService.insertComplain(complain);
-    }
-
-    public void updateComplain(Complain complain) {
-        complainService.updateComplain(complain);
-    }
+//        public List selectLike(String search) {
+//        List<Complain> list = complainService.selectLike(search);
+//        System.out.print(list);
+//        return list;
+//    }
 
 //    @GetMapping(value = "/select")
 //    public ModelAndView selectLike(String search) {

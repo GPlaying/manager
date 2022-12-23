@@ -98,10 +98,16 @@
    - @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = “repair_seq”)：表示主键生成策略是sequence(可以为Auto、IDENTITY、native等，Auto表示可在多个数据库间切换)，指定sequence的名字是repair_seq
    - @Getter@Setter：作用于属性上,自动生成get,set方法
    - @ToString：用于打印输出字符串
-   - @Entity：表示该类是要给实体类，在羡慕启动时会根据该类自动生成一张表，表的名称即@Entity注解中name的值，如果不配置name，默认表明为类名
+   - @Entity：表示该类是要给实体类，在项目启动时会根据该类自动生成一张表，表的名称即@Entity注解中name的值，如果不配置name，默认表明为类名
    - @Data ： 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法
+   - @Autowired：可以对成员变量、方法和构造函数进行标注，来完成自动装配的工作，@Autowired标注可以放在成员变量上，也可以放在成员变量的set方法上，也可以放在任意方法上表示，自动执行当前方法,统一初始化之后要用的话就直接拿
+   - @NoArgsConstructor：注解在类上，为类提供一个无参的构造方法
+   - @Transactional：是声明式事务管理编程中使用的注解，应该只被应用到 public 方法上，将标签放置在需要进行事务管理的方法上，而不是放在所有接口实现类上，实质是使用了 JDBC 的事务来进行事务控制的，基于 Spring 的动态代理的机制
 
-5. 项目架构解析
+5. SpringBoot——配置文件里的全局变量
+   - https://blog.csdn.net/weixin_43487532/article/details/120439639
+
+6. 项目架构解析
    - bean	数据层（存放数据类）
    - config	存放一些基本配置文件
    - controller	控制层（处理客户端的请求），也就是调用service提供的服务（即方法）
@@ -109,13 +115,13 @@
    - service	业务层的接口类（定义接口方法）
    - serviceImpl	业务层的实现类（处理逻辑）
 
-6. 项目架构解释
+7. 项目架构解释
    - lombok注解
    - springboot框架
    - mysql数据库
    - Jpa数据访问方案
 
-7. 项目启动步骤
+8. 项目启动步骤
    - 如果社区版创建不了SpringBoot项目的话，可以参考第1条说明
    - 在“项目设置”一栏中将项目src\main\con设置为源文件、src\main\resources设置为资源文件即可
    - 编辑配置（榔头符号旁边的选项），选择Spring Boot,并将main.com.example.manage.ManageApplication设置为“主类”（这部分会有提示）
