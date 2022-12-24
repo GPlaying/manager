@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/manager?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
-    password: yB2020616;
+    password: 0805hhhh
     driver-class-name: com.mysql.cj.jdbc.Driver
   # JPA配置，打印sql语句
   jpa:

@@ -32,10 +32,10 @@ public class OwnersController {
 
     };
 
-//    //投诉申请
-//    public void launchComplain(RepairTable repairTable){
+    //投诉申请
+    public void launchComplain(RepairTable repairTable){
 //        ownersService.launchComplain(repairTable);
-//    }
+    }
 
 
 //    public List query(){
