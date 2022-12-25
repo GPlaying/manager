@@ -38,24 +38,26 @@ public class ManagerController {
         return list;
     }
 
-    //将待处理的投诉状态转为处理完毕,填写调度员解释,工人解释,最后更新到数据库中
+    //添加worker_explain
     public void addworker_explain(String worker_expl,Complain complain){
         complain.setworker_explain(worker_expl);
         complainService.updateComplain(complain);//更新表中的这个complain
     }
-
+    
+    //添加dispatcher_explain
     public void adddispatcher_explain(String dispatcher_expl,Complain complain){
         complain.setdispatcher_explain(dispatcher_expl);
         complainService.updateComplain(complain);//更新表中的这个complain
     }
 
+    //添加worker_explain和dispatcher_explain
     public void addexplain(String dispatcher_expl,String worker_expl,Complain complain){
         complain.setdispatcher_explain(dispatcher_expl);
         complain.setworker_explain(worker_expl);
         complainService.updateComplain(complain);//更新表中的这个complain
     }
 
-    //查看调度员解释和工人解释是否已经填写，若已经填写，将待处理的投诉状态转为处理完毕,,最后更新到数据库中
+    //查看调度员解释和工人解释是否已经填写，若已经填写，将待处理的投诉状态转为处理完毕,最后更新到数据库中
     public void finishComplain(Complain complain){
         String dispatcher_expl, worker_expl_expl;
         dispatcher_expl = complain.getdispatcher_explain();
@@ -67,6 +69,7 @@ public class ManagerController {
 
     }
 
+    //finishComplain的重载，参数为complain_id
     public void finishComplain(Interger complain_id){
         List<Complain> all_complains = complainService.selectAllComplain();
         String dispatcher_expl, worker_expl_expl;
@@ -84,20 +87,5 @@ public class ManagerController {
         complainService.updateComplain(complain);//更新表中的这个complain
 
     }
-
-//    //申请管理:将待确认的报修表状态转为待调度,填写调度员名字,设置故障类型,最后更新到数据库中
-//    public void confirmRepairTable(Integer type, String dispatcher_name){
-//        //查找状态为待确认的报修表
-//        List<RepairTable> list = repairTableService.selectRepairTable(0);
-//
-//        //改变状态,设置类型,并更新到数据库中
-//        for(RepairTable r : list){
-//            r.setStatus(1);
-//            r.setFault_type(type);
-//            r.setDispatcher_name(dispatcher_name);
-//            repairTableService.addRepairTable(r);
-//        }
-//    };
-
 
 }
