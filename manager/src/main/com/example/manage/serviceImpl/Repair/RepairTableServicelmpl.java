@@ -22,6 +22,11 @@ public class RepairTableServicelmpl implements RepairTableService {
         return id;
     }
 
+    //通过id值检索报修表
+    public RepairTable selectById(Integer id){
+        return repairTableRepository.getById(id);
+    }
+
     //从RepairTable数据库中检索出相应状态的报修表序列
     public List<RepairTable> selectRepairTable(Integer status) {
         List<RepairTable> list = new ArrayList<>();//查询集合

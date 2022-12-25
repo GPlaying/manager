@@ -11,7 +11,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#  # mvc配置，映射html页面
+
+#  main:
+#    banner-mode: off
+  #  # mvc配置，映射html页面
 #  mvc:
 #    static-path-pattern: /**
 #    view:
@@ -32,3 +35,15 @@ server:
 #globel_variable:
 #  #全局变量设置
 #  wait_for_confirmed:待确认的报修表
+
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: error
+
+    root: off
+
+

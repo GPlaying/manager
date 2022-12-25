@@ -3,12 +3,15 @@ package example.manage.service.Repair;
 import example.manage.bean.Repair.RepairTable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Service
 public interface RepairTableService {
 
     Integer addRepairTable(RepairTable repairTable);// 申请报修
+
+    RepairTable selectById(Integer id);//通过id值检索报修表
 
     //从RepairTable数据库中检索相应状态的报修表序列
     List<RepairTable> selectRepairTable(Integer status);

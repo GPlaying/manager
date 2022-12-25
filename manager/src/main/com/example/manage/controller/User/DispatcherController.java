@@ -1,6 +1,7 @@
 package example.manage.controller.User;
 
 import example.manage.bean.Repair.RepairTable;
+import example.manage.bean.User.Dispatcher;
 import example.manage.bean.User.Workers;
 import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.DispatcherService;
@@ -19,6 +20,11 @@ public class DispatcherController {
 
     @Autowired
     private WorkersService workersService;
+
+    //查找调度员
+    public List<Dispatcher> selectAllDispather(){
+        return dispatcherService.selectAllDispather();
+    }
 
     //申请管理:将待确认的报修表状态转为待调度,填写调度员名字,设置故障类型,最后更新到数据库中
     public void confirmRepairTable(Integer type, String dispatcher_name,RepairTable repairTable){

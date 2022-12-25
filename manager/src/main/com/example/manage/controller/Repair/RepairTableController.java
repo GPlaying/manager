@@ -1,26 +1,30 @@
-//package example.manage.controller.Repair;
+package example.manage.controller.Repair;
+
+import example.manage.bean.Repair.RepairTable;
+import example.manage.service.Repair.RepairTableService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class RepairTableController {
+
+    @Autowired
+    private RepairTableService repairTableService;
+
+    public RepairTable selectById(Integer id){
+        return repairTableService.selectById(id);
+    }
 //
-//import example.manage.bean.Repair.RepairTable;
-//import example.manage.service.Repair.RepairTableService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//
-//@Controller
-//public class RepairTableController {
-//
-//    @Autowired
-//    private RepairTableService repairTableService;
-////
-////    public void deleteRepairTable(Integer id) {
-////        repairTableService.deleteRepairTable(id);
-////    }
-////
-//    public void addRepairTable(RepairTable repairTable) {
-//        repairTableService.addRepairTable(repairTable);
+//    public void deleteRepairTable(Integer id) {
+//        repairTableService.deleteRepairTable(id);
 //    }
-////
-////    public void updateRepairTable(RepairTable repairTable) {
-////        repairTableService.updateRepairTable(repairTable);
-////    }
 //
-//}
+    public void addRepairTable(RepairTable repairTable) {
+        repairTableService.addRepairTable(repairTable);
+    }
+//
+//    public void updateRepairTable(RepairTable repairTable) {
+//        repairTableService.updateRepairTable(repairTable);
+//    }
+
+}

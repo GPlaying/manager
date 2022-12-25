@@ -1,6 +1,7 @@
 package example.manage.controller.User;
 
 import example.manage.bean.Repair.RepairTable;
+import example.manage.bean.User.Owners;
 import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.OwnersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @Controller
@@ -19,8 +21,13 @@ public class OwnersController {
     @Autowired
     private RepairTableService repairTableService;
 
+    //查找业主
+    public List<Owners> selectAllOwners(){
+        return ownersService.selectAllOwners();
+    }
+
     //申请报修
-    public void launchRepairTable(String owner_name, String fault_content, String launch_route) {
+    public Integer launchRepairTable(String owner_name, String fault_content, String launch_route) {
 
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -28,7 +35,9 @@ public class OwnersController {
 
         RepairTable repairTable = new RepairTable(owner_name,fault_content,launch_route,launch_time);
 
-        Integer id = repairTableService.addRepairTable(repairTable);//此ID值以备后用
+        Integer id = repairTableService.addRepairTable(repairTable);
+
+        return id;
 
     };
 
