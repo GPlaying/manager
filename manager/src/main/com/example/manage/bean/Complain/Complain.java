@@ -1,6 +1,7 @@
 package example.manage.bean.Complain;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -13,7 +14,9 @@ public class Complain {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(updatable = false)
     private int id;
-    private String owners_name; // 业主名字
+    @Column(name = "owner_name")
+    private String owner_name; // 业主名字
+    @Column(name = "content")
     private String content; //投诉内容
 
 

@@ -5,14 +5,16 @@ import example.manage.service.Repair.RepairTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.Optional;
+
 @Controller
 public class RepairTableController {
 
     @Autowired
     private RepairTableService repairTableService;
 
-    public RepairTable selectById(Integer id){
-        return repairTableService.selectById(id);
+    public Optional<RepairTable> findById(Integer id){
+        return repairTableService.findById(id);
     }
 //
 //    public void deleteRepairTable(Integer id) {

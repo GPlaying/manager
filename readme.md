@@ -107,7 +107,14 @@
 5. SpringBoot——配置文件里的全局变量
    - https://blog.csdn.net/weixin_43487532/article/details/120439639
 
-6. 项目架构解析
+6. SpringBoot连接数据的操作
+   - 在idea中安装Database Navigator、Database Tool、JPA SQL插件，详见 https://blog.csdn.net/qq_34767784/article/details/105874355
+   - idea连接Mysql数据库，详见 https://blog.csdn.net/chenshun123/article/details/51288814
+
+7. Spring Data JPA - 参考文档：https://www.springcloud.cc/spring-data-jpa.html#repositories.query-methods.query-lookup-strategies
+
+
+8. 项目架构解析
    - bean	数据层（存放数据类）
    - config	存放一些基本配置文件
    - controller	控制层（处理客户端的请求），也就是调用service提供的服务（即方法）
@@ -115,13 +122,13 @@
    - service	业务层的接口类（定义接口方法）
    - serviceImpl	业务层的实现类（处理逻辑）
 
-7. 项目架构解释
+9. 项目架构解释
    - lombok注解
    - springboot框架
    - mysql数据库
    - Jpa数据访问方案
 
-8. 项目启动步骤
+10. 项目启动步骤
    - 如果社区版创建不了SpringBoot项目的话，可以参考第1条说明
    - 在“项目设置”一栏中将项目src\main\con设置为源文件、src\main\resources设置为资源文件即可
    - 编辑配置（榔头符号旁边的选项），选择Spring Boot,并将main.com.example.manage.ManageApplication设置为“主类”（这部分会有提示）

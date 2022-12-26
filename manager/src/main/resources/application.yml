@@ -12,8 +12,8 @@ spring:
       hibernate:
         format_sql: true
 
-#  main:
-#    banner-mode: off
+  main:
+    banner-mode: off
   #  # mvc配置，映射html页面
 #  mvc:
 #    static-path-pattern: /**
@@ -27,6 +27,12 @@ spring:
 server:
   # 修改启动端口号
   port: 8081
+
+  version: public
+
+  profile:
+    active: dev
+
   # 静态资源映射路径
   web:
     resources:
@@ -44,6 +50,7 @@ logging:
         boot:
           autoconfigure: error
 
-    root: off
+
+#    root: off
 
 

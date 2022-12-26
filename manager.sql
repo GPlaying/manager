@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 23/12/2022 22:53:38
+ Date: 26/12/2022 22:54:07
 */
 
 SET NAMES utf8mb4;
@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `complain`;
 CREATE TABLE `complain`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `owners_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `owner_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
@@ -84,7 +84,7 @@ INSERT INTO `owners` VALUES (2, 'o_2');
 -- ----------------------------
 DROP TABLE IF EXISTS `repairtable`;
 CREATE TABLE `repairtable`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `owner_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `worker_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `dispatcher_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
@@ -96,24 +96,34 @@ CREATE TABLE `repairtable`  (
   `repair_evaluation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `status` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of repairtable
 -- ----------------------------
+INSERT INTO `repairtable` VALUES (1, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T21:59', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (2, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T21:59', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (3, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:16', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (4, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:19', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (5, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:19', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (6, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:26', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (7, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:30', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (8, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:37', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (9, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:38', NULL, NULL, 0);
+INSERT INTO `repairtable` VALUES (10, 'o_1', NULL, NULL, 0, '电梯故障', '微信', '2022-12-26T22:51', NULL, NULL, 0);
 
 -- ----------------------------
 -- Table structure for repairtablerecord
 -- ----------------------------
 DROP TABLE IF EXISTS `repairtablerecord`;
 CREATE TABLE `repairtablerecord`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `repairTableId` int NULL DEFAULT NULL,
   `worker_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `start_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `end_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of repairtablerecord

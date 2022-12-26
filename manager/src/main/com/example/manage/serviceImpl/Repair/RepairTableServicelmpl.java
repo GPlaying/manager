@@ -4,27 +4,31 @@ import example.manage.bean.Repair.RepairTable;
 import example.manage.repository.RepairTable.RepairTableRepository;
 import example.manage.service.Repair.RepairTableService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+
+@Service
 public class RepairTableServicelmpl implements RepairTableService {
 
     @Autowired
     private RepairTableRepository repairTableRepository;
 
-    @Transactional(rollbackFor = Exception.class)
+//    @Transactional(rollbackFor = Exception.class)
     @Override
     public Integer addRepairTable(RepairTable repairTable) {
         RepairTable result = repairTableRepository.saveAndFlush(repairTable);//返回一个对象
+//        Integer id = repairTableRepository.saveAndFlush(repairTable).getId();
         Integer id = result.getId();
         return id;
     }
 
     //通过id值检索报修表
-    public RepairTable selectById(Integer id){
-        return repairTableRepository.getById(id);
+    public Optional<RepairTable> findById(Integer id){
+        return repairTableRepository.findById(id);
     }
 
     //从RepairTable数据库中检索出相应状态的报修表序列

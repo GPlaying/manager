@@ -6,6 +6,8 @@ import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.OwnersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class OwnersController {
 
     @Autowired
     private RepairTableService repairTableService;
+
 
     //查找业主
     public List<Owners> selectAllOwners(){
