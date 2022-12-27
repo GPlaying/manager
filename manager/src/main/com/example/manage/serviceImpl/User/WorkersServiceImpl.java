@@ -4,13 +4,10 @@ import example.manage.bean.User.Workers;
 import example.manage.repository.User.WorkersRepository;
 import example.manage.service.User.WorkersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Service
 public class WorkersServiceImpl implements WorkersService {
     @Autowired
     private WorkersRepository workersRepository;

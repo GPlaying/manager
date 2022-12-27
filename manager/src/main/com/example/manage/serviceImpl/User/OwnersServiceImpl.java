@@ -5,13 +5,10 @@ import example.manage.repository.RepairTable.RepairTableRepository;
 import example.manage.repository.User.OwnersRepository;
 import example.manage.service.User.OwnersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
-@Service
 public class OwnersServiceImpl implements OwnersService {
     @Autowired
     private RepairTableRepository repairTableRepository;

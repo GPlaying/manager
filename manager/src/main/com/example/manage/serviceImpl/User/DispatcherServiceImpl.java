@@ -6,12 +6,9 @@ import example.manage.repository.RepairTable.RepairTableRepository;
 import example.manage.repository.User.DispatcherRepository;
 import example.manage.service.User.DispatcherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
-@Service
 public class DispatcherServiceImpl implements DispatcherService{
     @Autowired
     private RepairTableRepository repairTableRepository;

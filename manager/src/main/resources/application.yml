@@ -1,9 +1,9 @@
 spring:
   # 数据源，连接MySQL数据库
   datasource:
-    url: jdbc:mysql://localhost:3306/manager?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/?user=root
     username: root
-    password: yB2020616;
+    password: liuyang
     driver-class-name: com.mysql.cj.jdbc.Driver
   # JPA配置，打印sql语句
   jpa:
@@ -11,10 +11,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-  main:
-    banner-mode: off
-  #  # mvc配置，映射html页面
+#  # mvc配置，映射html页面
 #  mvc:
 #    static-path-pattern: /**
 #    view:
@@ -27,12 +24,6 @@ spring:
 server:
   # 修改启动端口号
   port: 8081
-
-  version: public
-
-  profile:
-    active: dev
-
   # 静态资源映射路径
   web:
     resources:
@@ -41,16 +32,3 @@ server:
 #globel_variable:
 #  #全局变量设置
 #  wait_for_confirmed:待确认的报修表
-
-
-logging:
-  level:
-    org:
-      springframework:
-        boot:
-          autoconfigure: error
-
-
-#    root: off
-
-

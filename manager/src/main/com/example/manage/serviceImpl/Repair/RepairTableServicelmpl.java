@@ -17,7 +17,7 @@ public class RepairTableServicelmpl implements RepairTableService {
     @Autowired
     private RepairTableRepository repairTableRepository;
 
-//    @Transactional(rollbackFor = Exception.class)
+    //    @Transactional(rollbackFor = Exception.class)
     @Override
     public Integer addRepairTable(RepairTable repairTable) {
         RepairTable result = repairTableRepository.saveAndFlush(repairTable);//返回一个对象

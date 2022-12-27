@@ -42,18 +42,4 @@ public class OwnersController {
 
         return id;
 
-    };
-
-//    //投诉申请
-//    public void launchComplain(RepairTable repairTable){
-//        ownersService.launchComplain(repairTable);
-//    }
-
-
-//    public List query(){
-//        List<Owners> list = ownersService.selectAllOwners();
-//        System.out.print(list);
-//        return list;
-//    }
-
-}
+    }}
