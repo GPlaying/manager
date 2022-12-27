@@ -30,7 +30,15 @@ public class OwnersController {
 
         Integer id = repairTableService.addRepairTable(repairTable);//此ID值以备后用
 
-    };
+    }
+
+    //报修评价
+    public void commentOnRepair(RepairTable repairTable, String comment){
+        //更新维修表
+        repairTable.setRepair_evaluation(comment);
+        //存回数据库中
+        Integer updateStatus = repairTableService.updateRepairTable(repairTable);
+    }
 
 //    //投诉申请
 //    public void launchComplain(RepairTable repairTable){

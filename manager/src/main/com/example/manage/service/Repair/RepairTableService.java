@@ -16,7 +16,7 @@ public interface RepairTableService {
     //从RepairTable数据库中检索出相应维修工的任务
     List<RepairTable> searchRepairTable(String workerName);
 
-//    void updateRepairTable(RepairTable repairTable);// 修改报修
+    Integer updateRepairTable(RepairTable repairTable);// 更新报修
 //
 //    void deleteRepairTable(Integer id);// 删除报修
 

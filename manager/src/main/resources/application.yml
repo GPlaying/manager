@@ -1,9 +1,9 @@
 spring:
   # 数据源，连接MySQL数据库
   datasource:
-    url: jdbc:mysql://localhost:3306/manager?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/?user=root
     username: root
-    password: yB2020616;
+    password: wgcwgc
     driver-class-name: com.mysql.cj.jdbc.Driver
   # JPA配置，打印sql语句
   jpa:
