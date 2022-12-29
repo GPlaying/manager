@@ -1,8 +1,10 @@
 package example.manage.controller.User;
 
+import example.manage.bean.Complain.Complain;
 import example.manage.bean.Repair.RepairTable;
 import example.manage.bean.Repair.RepairTableRecord;
 import example.manage.bean.User.Workers;
+import example.manage.service.Complain.ComplainService;
 import example.manage.service.Repair.RepairTableRecordService;
 import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.WorkersService;
@@ -25,6 +27,9 @@ public class WorkersController {
 
     @Autowired
     private RepairTableRecordService repairTableRecordService;
+
+    @Autowired
+    private ComplainService complainService;
 
     //查询分配给自己的任务
     public List<RepairTable> searchRepairTable(String workerName){
@@ -68,6 +73,12 @@ public class WorkersController {
         repairTableRecord.setEnd_time(end_time);
         //更新数据
         repairTableRecordService.addRepairTableRecord(repairTableRecord);
+    }
+
+    //提交情况说明
+    public void launchExplain(Complain complain, String explain){
+        complain.setWorker_explain(explain);
+        complainService.updateComplain(complain);
     }
 
 

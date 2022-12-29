@@ -2,9 +2,15 @@ package com.example.manage;
 
 import example.manage.ManageApplication;
 import example.manage.bean.Repair.RepairTable;
+import example.manage.bean.Repair.RepairTableRecord;
 import example.manage.bean.User.Owners;
+import example.manage.bean.User.Workers;
 import example.manage.controller.Repair.RepairTableController;
+import example.manage.controller.Repair.RepairTableRecordController;
+import example.manage.controller.User.DispatcherController;
 import example.manage.controller.User.OwnersController;
+import example.manage.controller.User.WorkersController;
+import example.manage.service.User.WorkersService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +27,17 @@ public class OwnersControllerTest {
     OwnersController ownersController;
     @Autowired
     RepairTableController repairTableController;
+    @Autowired
+    DispatcherController dispatcherController;
+    @Autowired
+    WorkersService workersService;
+    @Autowired
+    WorkersController workersController;
+    @Autowired
+    RepairTableRecordController repairTableRecordController;
 
 
-    /**
-     * 测试业主报修申请是否成功
-     */
+
     @Test
     public void initRepair(){
         //获取第一位业主的信息
@@ -44,6 +56,40 @@ public class OwnersControllerTest {
         Assert.assertEquals(repairTable.getLaunch_route(), launch_route);
         Assert.assertEquals(repairTable.getOwner_name(), Owner.getName());
         Assert.assertEquals(repairTable.getStatus(), 0);
+
+        //申请管理:将待确认的报修表状态转为待调度,填写调度员名字,设置故障类型,最后更新到数据库中
+        dispatcherController.confirmRepairTable(1, "d", repairTable);
+        Assert.assertEquals(repairTable.getStatus(),1);
+        Assert.assertEquals(repairTable.getDispatcher_name(), "d");
+        Assert.assertEquals(repairTable.getFault_type(), 1);
+
+        //进行调度
+        dispatcherController.dispatherRepairTable(repairTable);
+        Assert.assertEquals(repairTable.getStatus(), 2);
+        Assert.assertEquals(repairTable.getWorker_name(), "w_1");
+        //获得选择的工人
+        List<Workers> idleWorkers = workersService.selectIdleWorkers();
+
+
+        if(idleWorkers.size() != 0){
+
+            for(Workers w : idleWorkers){
+                if(w.getName() == repairTable.getWorker_name()){
+                    //将第一位工种匹配的Worker名字赋给repairTable
+                    workersController.working(repairTable, w);
+                    Assert.assertEquals(w.getStatus(), 1);
+
+                }
+            }
+        }
+
+//
+//
+//        RepairTableRecord repairTableRecord = repairTableRecordController.selectById(repairId);
+//        Assert.assertEquals(repairTableRecord.getWorker_name(), "w_1");
+//
+//
+//        workersController.finished(repairTableRecord);
 
     }
 

@@ -1,7 +1,9 @@
 package example.manage.controller.User;
 
+import example.manage.bean.Complain.Complain;
 import example.manage.bean.Repair.RepairTable;
 import example.manage.bean.User.Owners;
+import example.manage.service.Complain.ComplainService;
 import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.OwnersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class OwnersController {
 
     @Autowired
     private RepairTableService repairTableService;
+    @Autowired
+    private ComplainService complainService;
 
 
     //查找业主
@@ -44,10 +48,23 @@ public class OwnersController {
 
     };
 
-//    //投诉申请
-//    public void launchComplain(RepairTable repairTable){
-//        ownersService.launchComplain(repairTable);
-//    }
+    //投诉申请
+    public int launchComplain(Integer repair_id, String owners_name, String content,Integer state ){
+        return ownersService.launchComplain(repair_id, owners_name, content, state);
+    }
+
+    //获取用户投诉
+    public Complain getComplainByRepair_id(Integer repair_id){
+        return complainService.getComplainByRepair_id(repair_id);
+    }
+
+    //报修评价
+    public void commentOnRepair(RepairTable repairTable, String comment){
+        //更新维修表
+        repairTable.setRepair_evaluation(comment);
+        //存回数据库中
+        Integer updateStatus = repairTableService.updateRepairTable(repairTable);
+    }
 
 
 //    public List query(){

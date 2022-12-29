@@ -1,6 +1,8 @@
 package example.manage.service.Repair;
 
 import example.manage.bean.Repair.RepairTable;
+import example.manage.bean.User.Dispatcher;
+import example.manage.bean.User.Workers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,14 @@ public interface RepairTableService {
 
     //从RepairTable数据库中检索出相应维修工的任务
     List<RepairTable> searchRepairTable(String workerName);
+
+    Integer updateRepairTable(RepairTable repairTable);// 更新报修
+
+    Workers findWorkers(int repair_id);
+
+    Dispatcher findDispatcher(int repair_id);
+
+    Integer lastId();
 
 //    void updateRepairTable(RepairTable repairTable);// 修改报修
 //

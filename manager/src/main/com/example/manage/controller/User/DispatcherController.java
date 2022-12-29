@@ -1,8 +1,10 @@
 package example.manage.controller.User;
 
+import example.manage.bean.Complain.Complain;
 import example.manage.bean.Repair.RepairTable;
 import example.manage.bean.User.Dispatcher;
 import example.manage.bean.User.Workers;
+import example.manage.service.Complain.ComplainService;
 import example.manage.service.Repair.RepairTableService;
 import example.manage.service.User.DispatcherService;
 import example.manage.service.User.WorkersService;
@@ -22,6 +24,9 @@ public class DispatcherController {
 
     @Autowired
     private WorkersService workersService;
+
+    @Autowired
+    private ComplainService complainService;
 
     //查找调度员
     public List<Dispatcher> selectAllDispather(){
@@ -77,6 +82,12 @@ public class DispatcherController {
         }else{
             System.out.println("暂无空闲维修工,请稍后再试试");
         }
+    }
+
+    //提交情况说明
+    public void launchExplain(Complain complain, String explain){
+        complain.setDispatcher_explain(explain);
+        complainService.updateComplain(complain);
     }
 
 }

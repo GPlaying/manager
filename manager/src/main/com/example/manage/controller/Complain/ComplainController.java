@@ -9,20 +9,20 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ComplainController {
 
-//    @Autowired
-//    private ComplainService complainService;
-//
-//    public void deleteComplain(Integer id) {
-//        complainService.deleteComplain(id);
-//    }
-//
-//    public void addComplain(Complain complain) {
-//        complainService.addComplain(complain);
-//    }
-//
-//    public void updateComplain(Complain complain) {
-//        complainService.updateComplain(complain);
-//    }
+    @Autowired
+    private ComplainService complainService;
+
+    public void deleteComplain(Integer id) {
+        complainService.deleteComplain(id);
+    }
+
+    public void addComplain(Complain complain) {
+        complainService.addComplain(complain);
+    }
+
+    public void updateComplain(Complain complain) {
+        complainService.updateComplain(complain);
+    }
 
 //        public List selectLike(String search) {
 //        List<Complain> list = complainService.selectLike(search);

@@ -6,18 +6,73 @@ import example.manage.service.Complain.ComplainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class ComplainServiceImpl implements ComplainService {
 
-//    @Autowired
-//    private ComplainRepository complainRepository;
-//
-//    @Override
-//    public void addComplain(Complain complain) {
-//        complainRepository.save(complain);
-//    }
-//
+    @Autowired
+    private ComplainRepository complainRepository;
+
+    @Override
+    public Integer addComplain(Complain complain) {
+        Complain result = complainRepository.saveAndFlush(complain);
+        Integer id = result.getId();
+        return id;
+    }
+
+    @Override
+    public void deleteComplain(Integer id) {
+//        //直接删除
+//        complainRepository.deleteById(id);
+        //更改状态
+        Complain r = complainRepository.findById(id).get();
+        r.setState(1);
+        complainRepository.saveAndFlush(r);
+
+    }
+
+    @Override
+    public void updateComplain(Complain complain) {
+
+        complainRepository.saveAndFlush(complain);
+    }
+
+    @Override
+    public List<Complain> selectAllComplain() {
+        return complainRepository.findAll();
+    }
+
+    @Override
+    public List<Complain> selectbyId(Integer id){
+        List<Complain> result = new ArrayList<>();
+        List<Complain> allcomplain = complainRepository.findAll();
+        for (Complain r : allcomplain){
+            if(r.getId() == id){
+                result.add(r);
+            }
+        }
+        if(result.size() == 0){
+            System.out.print("没有ID为："+id+"的投诉记录");
+        }
+        return result;
+    }
+
+    @Override
+    public Complain getComplainByRepair_id(Integer repair_id) {
+        List<Complain> allComplain = complainRepository.findAll();
+        for (Complain r : allComplain){
+            if(r.getRepaire_id() == repair_id){
+                return r;
+            }
+        }
+        System.out.print("未找到repaire_id为"+repair_id+"的投诉\n");
+        return null;
+    }
+
+    //
 //    @Override
 //    public void deleteComplain(Integer id) {
 //        complainRepository.deleteById(id);
